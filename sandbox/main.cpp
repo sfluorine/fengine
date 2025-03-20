@@ -5,6 +5,11 @@ struct velocity_t {
     glm::vec2 direction;
 };
 
+static inline velocity_t make_velocity(float x, float y)
+{
+    return { .direction = glm::vec2(x, y) };
+}
+
 static SystemResult sdl_event_handler(registry_t rg, float)
 {
     auto app_state = rg.get_resource<app_state_t*>();
@@ -24,16 +29,20 @@ static SystemResult sdl_event_handler(registry_t rg, float)
 static SystemResult setup(registry_t rg)
 {
     rg.spawn_entity<quad_2d_t, velocity_t>(
-        { .position = glm::vec2(200.0f, 200.0f),
-          .dimension = glm::vec2(20.0f) },
-        { .direction = glm::vec2(500.0f) });
+        make_quad(glm::vec2(20.0f, 10.0f), glm::vec2(20.0f)),
+        make_velocity(-500.0f, 500.0f));
 
     rg.spawn_entity<quad_2d_t, velocity_t>(
-        { .position = glm::vec2(400.0f, 10.0f), .dimension = glm::vec2(20.0f) },
-        { .direction = glm::vec2(500.0f) });
+        make_quad(glm::vec2(70.0f, 10.0f), glm::vec2(20.0f)),
+        make_velocity(500.0f, 500.0f));
+
     rg.spawn_entity<quad_2d_t, velocity_t>(
-        { .position = glm::vec2(60.0f, 50.0f), .dimension = glm::vec2(20.0f) },
-        { .direction = glm::vec2(500.0f) });
+        make_quad(glm::vec2(130.0f, 10.0f), glm::vec2(20.0f)),
+        make_velocity(-500.0f, 500.0f));
+
+    rg.spawn_entity<quad_2d_t, velocity_t>(
+        make_quad(glm::vec2(180.0f, 10.0f), glm::vec2(20.0f)),
+        make_velocity(500.0f, 500.0f));
 
     return {};
 }

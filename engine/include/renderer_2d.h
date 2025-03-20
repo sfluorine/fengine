@@ -13,6 +13,11 @@ struct quad_2d_t {
     glm::vec2 dimension;
 };
 
+inline quad_2d_t make_quad(glm::vec2 position, glm::vec2 dimension)
+{
+    return { .position = position, .dimension = dimension };
+}
+
 struct quad_vertex_t {
     glm::vec2 position;
     glm::vec2 uv;

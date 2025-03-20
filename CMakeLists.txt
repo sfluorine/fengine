@@ -7,22 +7,22 @@ project(sandbox LANGUAGES CXX)
 
 add_executable(
   sandbox
-  ./src/sandbox/main.cpp
+  ./sandbox/main.cpp
 )
 
 add_library(
   fengine STATIC
-  ./src/fengine/src/app.cpp
-  ./src/fengine/src/fecs.cpp
-  ./src/fengine/src/window_sdl.cpp
-  ./src/fengine/src/renderer_2d.cpp
-  ./src/fengine/src/internal/shader/shader.cpp
+  ./engine/src/app.cpp
+  ./engine/src/fecs.cpp
+  ./engine/src/window_sdl.cpp
+  ./engine/src/renderer_2d.cpp
+  ./engine/src/internal/shader/shader.cpp
 )
 
 target_include_directories(
   fengine PUBLIC
-  ./src/fengine/include/
-  ./src/fengine/src/internal/
+  ./engine/include/
+  ./engine/src/internal/
 )
 
 target_link_libraries(
