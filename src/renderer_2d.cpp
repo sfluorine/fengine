@@ -118,7 +118,7 @@ PluginResult renderer_2d_t::build(app_t* app)
         return result;
 
     auto rg = app->get_registry();
-    rg.spawn_resource<window_creation_info_t>(m_window.get_creation_info());
+    rg.put_resource<window_creation_info_t>(m_window.get_creation_info());
 
     app->add_system(make_startup(setup));
 
@@ -141,7 +141,7 @@ SystemResult renderer_2d_t::setup(registry_t rg)
 
     glViewport(0, 0, info.width, info.height);
 
-    rg.spawn_resource<render_data_2d_t>(std::move(rd));
+    rg.put_resource<render_data_2d_t>(std::move(rd));
     return {};
 }
 

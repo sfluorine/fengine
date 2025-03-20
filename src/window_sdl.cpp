@@ -22,7 +22,7 @@ window_sdl_t::window_sdl_t(window_sdl_t&& other)
 PluginResult window_sdl_t::build(app_t* app)
 {
     auto rg = app->get_registry();
-    rg.spawn_resource<window_creation_info_t>(m_info);
+    rg.put_resource<window_creation_info_t>(m_info);
 
     app->add_system(make_startup(setup));
     app->add_system(make_update(m_event_handler));
@@ -86,7 +86,7 @@ SystemResult window_sdl_t::setup(registry_t rg)
         return result;
     }
 
-    rg.spawn_resource<sdl_context_t>(window, context);
+    rg.put_resource<sdl_context_t>(window, context);
     return {};
 }
 

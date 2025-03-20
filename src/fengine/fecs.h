@@ -21,7 +21,7 @@ public:
     }
 
     template<typename T, typename... Args>
-    void spawn_resource(Args&&... args)
+    void put_resource(Args&&... args)
     {
         m_rg->ctx().emplace<T>(std::forward<Args>(args)...);
     }
