@@ -1,5 +1,5 @@
-#include "window_sdl.h"
-#include "fecs.h"
+#include <fecs.h>
+#include <window_sdl.h>
 
 window_sdl_t::window_sdl_t(const char* title,
                            int32_t width,

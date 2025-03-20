@@ -3,30 +3,34 @@ cmake_minimum_required(VERSION 3.28)
 set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_CXX_COMPILER "clang++")
 
-project(game LANGUAGES CXX)
+project(sandbox LANGUAGES CXX)
 
 add_executable(
-  game
-  ./src/main.cpp
-  ./src/window_sdl.cpp
-  ./src/renderer_2d.cpp
-  ./src/misc/shader.cpp
+  sandbox
+  ./src/sandbox/main.cpp
 )
 
 add_library(
   fengine STATIC
-  ./src/fengine/app.cpp
-  ./src/fengine/fecs.cpp
+  ./src/fengine/src/app.cpp
+  ./src/fengine/src/fecs.cpp
+  ./src/fengine/src/window_sdl.cpp
+  ./src/fengine/src/renderer_2d.cpp
+  ./src/fengine/src/internal/shader/shader.cpp
 )
 
 target_include_directories(
   fengine PUBLIC
-  ./src/fengine/
+  ./src/fengine/include/
+  ./src/fengine/src/internal/
 )
 
 target_link_libraries(
   fengine PUBLIC
   EnTT::EnTT
+  glad
+  glm::glm
+  SDL3::SDL3
 )
 
 set(SDL_SHARED OFF)
@@ -40,9 +44,6 @@ add_subdirectory(./vendor/glm/)
 add_subdirectory(./vendor/SDL3/)
 
 target_link_libraries(
-  game PRIVATE
+  sandbox PRIVATE
   fengine
-  glad
-  glm::glm
-  SDL3::SDL3
 )

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "app.h"
-#include "fecs.h"
-#include "window_sdl.h"
+#include <app.h>
+#include <fecs.h>
+#include <window_sdl.h>
 
-#include "misc/shader.h"
+#include <shader/shader.h>
 
 #include <glm/glm.hpp>
 

@@ -11,4 +11,4 @@ cd ..
 
 cp ./out/compile_commands.json .
 
-./out/game
+./out/sandbox

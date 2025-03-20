@@ -1,4 +1,4 @@
-#include "fecs.h"
+#include <fecs.h>
 
 startup_system_t make_startup(GenericSystem system)
 {

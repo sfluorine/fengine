@@ -1,6 +1,6 @@
-#include "renderer_2d.h"
-#include "fecs.h"
-#include "window_sdl.h"
+#include <fecs.h>
+#include <renderer_2d.h>
+#include <window_sdl.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

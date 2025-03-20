@@ -1,7 +1,5 @@
-#include "app.h"
-#include "fecs.h"
-#include "renderer_2d.h"
-#include "window_sdl.h"
+#include <app.h>
+#include <renderer_2d.h>
 
 struct velocity_t {
     glm::vec2 direction;
