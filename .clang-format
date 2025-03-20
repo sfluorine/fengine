@@ -1,0 +1,66 @@
+---
+BasedOnStyle: WebKit
+AccessModifierOffset: -4
+AlignAfterOpenBracket: Align
+AlignArrayOfStructures: Right
+AlignConsecutiveAssignments:
+  Enabled: false
+AlignConsecutiveDeclarations:
+  PadOperators: true
+AlignConsecutiveMacros:
+  Enabled: true
+  PadOperators: true
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: Never
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortLambdasOnASingleLine: Inline
+AlwaysBreakBeforeMultilineStrings: true
+BinPackArguments: false
+BinPackParameters: false
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterClass: false
+  AfterControlStatement: Never
+  AfterEnum: false
+  AfterFunction: true
+  AfterNamespace: true
+  AfterObjCDeclaration: false
+  AfterStruct: false
+  AfterUnion: false
+  AfterExternBlock: true
+  BeforeCatch: false
+  BeforeElse: false
+  BeforeLambdaBody: false
+  BeforeWhile: false
+  IndentBraces: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+BreakAfterAttributes: Always
+BreakBeforeBraces: Custom
+ColumnLimit: 80
+IndentPPDirectives: BeforeHash
+NamespaceIndentation: None
+SortUsingDeclarations: true
+SpaceAfterTemplateKeyword: false
+SpacesInAngles: false
+SpacesInContainerLiterals: false
+Standard: Auto
+AllowAllConstructorInitializersOnNextLine: true
+AlwaysBreakAfterReturnType: None
+AlwaysBreakTemplateDeclarations: Yes
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+SpaceInEmptyParentheses: false
+SpacesInCStyleCastParentheses: false
+SpacesInParentheses: false
+CommentPragmas: 'IWYU pragma: keep'
+IncludeCategories:
+  - Regex: '^<glad/.*>'
+    Priority: 1
+  - Regex: '^<GLFW/.*>'
+    Priority: 2
+  - Regex: '^<.*>'  # Standard library headers
+    Priority: 3
+  - Regex: '^".*"'  # User headers
+    Priority: 4
