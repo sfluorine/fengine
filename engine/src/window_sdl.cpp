@@ -86,6 +86,8 @@ SystemResult window_sdl_t::setup(registry_t rg)
         return result;
     }
 
+    SDL_GL_SetSwapInterval(0);
+
     rg.put_resource<sdl_context_t>(window, context);
     return {};
 }

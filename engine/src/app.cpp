@@ -7,7 +7,10 @@ void app_t::run()
     if (!m_app_state.can_run)
         return;
 
-    using clock = std::chrono::high_resolution_clock;
+    using clock
+        = std::conditional<std::chrono::high_resolution_clock::is_steady,
+                           std::chrono::high_resolution_clock,
+                           std::chrono::steady_clock>::type;
 
     m_rg.ctx().emplace<app_state_t*>(&m_app_state);
 
@@ -31,8 +34,8 @@ void app_t::run()
                   .count();
 
         last_time = current_time;
-        time_acc += delta_time;
 
+        time_acc += delta_time;
         while (time_acc >= m_app_state.fixed_time_step) {
             for (const auto& system : m_fixed_update_systems) {
                 if (auto result = system(&m_rg, m_app_state.fixed_time_step);
@@ -42,7 +45,6 @@ void app_t::run()
                     goto end;
                 }
             }
-
             time_acc -= m_app_state.fixed_time_step;
         }
 

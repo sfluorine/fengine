@@ -1,3 +1,12 @@
+# FENGINE
+
+> A modular, plugin based, ECS-driven game engine.
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+FENGINE is a modular and plugin based game engine with a retained-mode OpenGL renderer, ECS, and a custom asset pipeline.
+
+## Example
+```cpp
 #include <app.h>
 #include <renderer_2d.h>
 
@@ -87,13 +96,18 @@ static SystemResult update(registry_t rg, float dt)
 int32_t main()
 {
     app_t app;
-    app.add_plugin(make_plugin<renderer_2d_t>(window_sdl_t(
-        "Basic 2D Renderer (OpenGL)", 1280, 720, sdl_event_handler)));
+    app.add_plugin(make_plugin<renderer_2d_t>(
+        window_sdl_t("hello window", 800, 600, sdl_event_handler)));
 
     app.add_system(make_startup(setup));
     app.add_system(make_update(update));
-
     app.run();
 
     return 0;
 }
+```
+## Building
+Ensure you have a C++ compiler that supports C++26.
+All dependencies are included, so no manual installation is required.
+To build, simply run:
+`$ ./build.sh`
